@@ -54,7 +54,9 @@ body, html {
   opacity: 0;
   transform: scale(1.1);
   filter: blur(12px);
+  pointer-events: none; /* 👈 prevents invisible blocking */
 }
+
 
 
 .cloud-overlay {
@@ -67,7 +69,7 @@ body, html {
   background: url('https://www.transparenttextures.com/patterns/cloudy.png');
   opacity: 0.15;
 
-  z-index: 9998;
+  z-index: 0;
   pointer-events: none;
 
   animation: drift 60s linear infinite;
