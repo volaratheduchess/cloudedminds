@@ -2,17 +2,22 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   const content = document.getElementById("content");
 
+  // Lock scroll
   document.body.classList.add("loading");
 
+  // Start fade
   setTimeout(() => {
     loader.classList.add("fade-out");
+  }, 1000);
 
-    // ⏳ Match this to your CSS transition (1.2s)
-    setTimeout(() => {
-      loader.style.display = "none";
-      document.body.classList.remove("loading");
-      content.style.display = "block";
-    }, 1200);
+  // Force finish (DO NOT rely on transitionend)
+  setTimeout(() => {
+    loader.style.display = "none";
 
-  }, 1500);
+    document.body.classList.remove("loading");
+
+    content.style.display = "block";
+    content.classList.add("show");
+
+  }, 2200); // must be longer than fade duration
 });
