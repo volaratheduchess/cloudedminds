@@ -72,12 +72,17 @@ body, html {
 }
 
 /* BASE CLOUD */
-.cloud {
+ .cloud {
   position: absolute;
-  width: 300px;
+
+  width: 250px;        /* 👈 controls size */
+  max-width: 30vw;     /* 👈 responsive cap */
+
+  height: auto;
+
   opacity: 0.25;
   filter: blur(2px);
-  mix-blend-mode: screen;
+
   animation: driftCloud linear infinite;
 }
 
