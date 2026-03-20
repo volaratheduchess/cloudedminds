@@ -1,1 +1,188 @@
+.italianno-regular {
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #440E03, #711705, #9D2007);
+  color: #FFD700;
+  overflow-x: hidden;
+}
+
+/* Loading Screen with Fade-Out */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #711705, #440E03 70%);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.5em;
+  color: gold;
+  z-index: 9999;
+
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+
+  transition: 
+    opacity 1.2s ease,
+    transform 1.2s ease,
+    filter 1.2s ease;
+
+  font-family: "Italianno", cursive;
+}
+
+/* 🌩️ STORM FADE OUT */
+#loader.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+  filter: blur(12px);
+}
+
+
+.cloud-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url('https://www.transparenttextures.com/patterns/cloudy.png');
+  opacity: 0.15;
+
+  z-index: 9998;
+  pointer-events: none;
+
+  animation: drift 60s linear infinite;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to   { background-position: 1000px 500px; }
+}
+
+#loader.fade-out {
+  opacity: 0;
+  pointer-events: none; /* 👈 prevents invisible blocking */
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ffff00;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatStars 10s linear infinite, shine 2s ease-in-out infinite alternate;
+}
+
+/* Random positions for multiple stars */
+.star:nth-child(1) { top: 30%; left: 30%; animation-duration: 12s; }
+.star:nth-child(2) { top: 40%; left: 70%; animation-duration: 8s; }
+.star:nth-child(3) { top: 70%; left: 50%; animation-duration: 10s; }
+.star:nth-child(4) { top: 60%; left: 20%; animation-duration: 8s; }
+.star:nth-child(5) { top: 90%; left: 60%; animation-duration: 10s; }
+
+/* Floating movement */
+@keyframes floatStars {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-30px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* Twinkling effect */
+@keyframes shine {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(0.8); }
+}
+
+
+/* Main Title */
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 4em;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Horizontal Sections */
+.sections-row {
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.section {
+  background: rgba(255, 215, 0, 0.05);
+  border: 2px solid #FFD700;
+  padding: 50px 20px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.section p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.section button {
+  background: #FFD700;
+  color: #440E03;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 5%;
+}
+
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
